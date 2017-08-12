@@ -1,16 +1,20 @@
-FROM alpine:3.3
+FROM gliderlabs/alpine:3.6
 
-RUN apk add --update git g++ make nodejs supervisor
+WORKDIR /build
+COPY . /build
 
-RUN mkdir -p /app/client /app/server
+RUN apk add --update \
+nodejs \
+nodejs-npm \
+&& rm -rf /var/cache/apk/* \
+&& npm install -g npm@5.3.0 pm2 \
+&& npm it \
+&& mkdir -p -m 0777 /app \
+&& cp -R /build/dist /app \
+&& cp /build/package* /app/server/ \
+&& cd /app \
+&& npm i --only=prod \
+&& npm cache clean --force \
+&& rm -rf /build
 
-COPY client /app/client
-
-COPY server /app/server
-
-COPY ./container/files /
-
-COPY ./container/scripts /app/scripts
-RUN /app/scripts/compile.sh
-
-CMD ["supervisord", "-n", "-c", "/etc/supervisord.conf"]
+ENTRYPOINT ["pm2-docker", "/app/server/app.js"]

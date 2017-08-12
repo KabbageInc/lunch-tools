@@ -1,9 +1,0 @@
-{
-    // See http://jshint.com/docs/ for more details
-
-    // Environments
-    "node"          : true,    // Node.js
-
-    // Custom Globals
-    "globals"       : {}        // additional predefined global variables
-}
