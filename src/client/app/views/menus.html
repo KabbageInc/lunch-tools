@@ -1,0 +1,24 @@
+<div class="row"><h2>Menus</h2></div>
+
+<div class="row">
+  <div class="text-info bg-info lunch-alert" ng-if="info"><i class="fa fa-info-circle fa-lg"></i>{{ info }}</div>
+  <div class="text-danger bg-danger lunch-alert" ng-if="error"><i class="fa fa-warning fa-lg"></i>{{ error }}</div>
+</div>
+
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="menu in menus | orderBy: 'date' : true">
+        <td>{{ menu.date | date : 'MM/dd/yyyy' }}</td>
+        <td colspan=2 ng-bind-html="menu.menu"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

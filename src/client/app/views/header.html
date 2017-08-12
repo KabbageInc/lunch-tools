@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars fa-lg"></i>
+      </button>
+      <a class="navbar-brand" href="#!/showme">
+        <div class="navbar-brand-name">
+          <img lunch-spin src="img/hotdog512.png" alt="Lunch Tools Logo" class="img-responsive"/>
+          <p>Lunch Tools</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav pull-right">
+        <lunch-tab name="Show Me" url= "#/showme"></lunch-tab>
+        <lunch-tab name="Generate" url= "#/generate"></lunch-tab>
+        <!--<lunch-tab name="Kitchen" url= "#/kitchen"></lunch-tab>-->
+        <lunch-tab name="Menus" url= "#/menus"></lunch-tab>
+        <!--<lunch-tab name="Translations" url= "#/translations"></lunch-tab>-->
+        <!--<lunch-tab name="Statistics" url= "#/statistics"></lunch-tab>-->
+        <li ng-class="liclass"><a href="https://dashboards.kabbage.com/viewer/public/dashboard?hub=Public&group=Lunch&name=Lunch%20Ratings" target="_blank">Analytics&nbsp;<i class="fa fa-external-link fa-fw fa-lg"></i></a></li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>

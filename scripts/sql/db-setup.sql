@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS `lunch` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `lunch`;
+
