@@ -5,18 +5,19 @@ import {LunchService} from '../services/lunchService';
 const router = Router();
 const db = new LunchService();
 
-const search = new ImageSearchService();
+// test method for new image search
+// const search = new ImageSearchService();
 
-router.get('/test/images/:query', (req, res) => {
-    return search.search(req.params.query)
-    .subscribe(
-        results => res.send(results),
-        err => {
-            console.error(err);
-            return res.status(500).send(err);
-        }
-    )
-});
+// router.get('/test/images/:query', (req, res) => {
+//     return search.search(req.params.query)
+//     .subscribe(
+//         results => res.send(results),
+//         err => {
+//             console.error(err);
+//             return res.status(500).send(err);
+//         }
+//     )
+// });
 
 router.get('/', (req, res) => {
   db.getLunches().subscribe(
