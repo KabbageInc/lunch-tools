@@ -9,9 +9,10 @@ nodejs-npm \
 && rm -rf /var/cache/apk/* \
 && npm install -g npm@5.3.0 pm2 \
 && npm it \
+&& npm run build \
 && mkdir -p -m 0777 /app \
 && cp -R /build/dist /app \
-&& cp /build/package* /app/server/ \
+&& cp /build/package* /app \
 && cd /app \
 && npm i --only=prod \
 && npm cache clean --force \
