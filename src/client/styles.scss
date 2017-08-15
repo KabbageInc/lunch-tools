@@ -1,0 +1,220 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,700|Bangers);
+
+body {
+  font-family: 'Arimo', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+h2 {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 75px;
+}
+
+.footer img {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  -webkit-filter: opacity(50%);
+  filter: opacity(50%);
+  vertical-align: center;
+}
+
+.hover-spin {
+    &:hover {
+        @extend .fa-spin;
+    }
+}
+
+.buttons-header {
+  text-align: right;
+  @include media-breakpoint-up(sm) {
+    min-width: 170px;
+  }
+  @include media-breakpoint-down(xs) {
+    min-width: 110px;
+  }
+}
+
+.lunch-alert {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.lunch-alert i {
+  margin-right: 10px;
+}
+
+.showme-date{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.showme-button {
+  text-align: center;
+  @include media-breakpoint-down(xs) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+  }
+  @include media-breakpoint-up(sm) {
+    margin-top: 150px;
+  }
+}
+
+.showme-button-left {
+  @extend .showme-button;
+  margin-right: 25px;
+}
+
+.showme-button-right {
+  @extend .showme-button;
+  margin-left: 25px;
+}
+
+.showme {
+  text-align: center;
+}
+
+.showme img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  @include media-breakpoint-down(xs) {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  @include media-breakpoint-up(sm) {
+    max-width: 500px;
+    max-height: 500px;
+  }
+}
+
+.showme-rating {
+  text-align: center;
+}
+
+.showme-comments {
+  text-align: left;
+  margin-top: 25px;
+}
+
+.showme-comments-title{
+  font-weight: bold;
+  font-size: 16;
+}
+
+.showme-comment-body {
+  margin-top: 15px;
+}
+
+.showme-comment-meta {
+  text-align: right;
+  font-style: italic;
+}
+
+.showme-comments textarea {
+  width: 100%;
+  resize: none;
+}
+
+.showme-comments-button {
+  text-align: right;
+}
+
+.showme-comments-button-activeUp {
+  color: blue;
+}
+
+.showme-comments-button-activeDown {
+  color: red;
+}
+
+.showme-comments-form {
+  margin-top: 15px;
+}
+
+.showme-controls {
+  text-align:center;
+}
+
+.showme-controls a {
+  @include media-breakpoint-down(xs) {
+    margin-left: 5px;
+  }
+  @include media-breakpoint-up(sm) {
+    margin-left: 15px;
+  }
+}
+
+.showme-controls p {
+  display: inline;
+}
+
+.showme-controls i {
+  pointer-events: none;
+}
+
+#showme-controls-first {
+  margin-left: 0px;
+}
+
+.generate-row {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.generate-row img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include media-breakpoint-down(xs) {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  @include media-breakpoint-up(sm) {
+    max-width: 500px;
+    max-height: 500px;
+  }
+}
+
+.kitchen {
+  margin-top: 30px;
+}
+
+.kitchen-row {
+  min-height: 200px;
+}
+
+.kitchen-dish {
+  text-align: left;
+  font-size: 24px;
+}
+
+.kitchen-button-fade {
+  transition: color 3s;
+}
+
+.toggle {
+  display: inline-block;
+}
+
+.toggle i {
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.toggle a {
+  text-decoration: none;
+  color: #000;
+}

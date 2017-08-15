@@ -1,0 +1,120 @@
+<div class="row showme">
+    <h2>Show Me Lunch</h2>
+</div>
+
+<div class="row">
+  <div class="text-info bg-info lunch-alert" *ngIf="info"><i class="fa fa-info-circle fa-lg"></i>{{ info }}</div>
+  <div class="text-danger bg-danger lunch-alert" *ngIf="error"><i class="fa fa-warning fa-lg"></i>{{ error }}</div>
+</div>
+<!-- 
+<div class="row">
+  <div class="showme-controls">
+    <a class="btn btn-default" role="button" pick-a-date="pickerDate" pick-a-date-options="pickerOptions"><i class="fa fa-calendar fa-2x"></i></a>
+    <a class="btn btn-default" role="button" data-toggle="modal" data-target="#settingsModal" *ngIf="settings.advanced"><i class="fa fa-gear fa-2x"></i></a>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="showme-date">
+    {{ lunch?.date.format("dddd MMM Do YYYY") }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="showme">
+    <p [innerHtml]="lunch.menu"></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-8 order-2" >
+    <div class="showme">
+      <div *ngIf="!notFound && lunch?.image">
+        <img [src]="lunch?.image" class="img-responsive"><br/>
+      </div>
+      <div *ngIf="notFound">
+        <i class="fa fa-question-circle fa-5x"></i>
+      </div>
+      <div *ngIf="!notFound && !lunch?.image">
+        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+      </div>
+    </div>
+  </div>
+  <div class="showme-button col-xs-6 col-sm-2 order-1">
+    <a class="btn btn-default" role="button" (click)="previousDay()"><i class="fa fa-chevron-left fa-3x"></i></a>
+  </div>
+  <div class="showme-button col-xs-6 col-sm-2 order-3">
+    <a class="btn btn-default" role="button" (click)="nextDay()"><i class="fa fa-chevron-right fa-3x"></i></a>
+  </div>
+</div>
+
+<div class="row" *ngIf="lunch && settings.advanced">
+  <div class="showme-comments col-xs-12 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
+    <div class="showme-comments-title">
+      Ratings
+    </div>
+    <div class="showme-comments">
+      <table class="table">
+        <tr *ngFor="let dish of lunch?.dishes">
+          <td class="" style="width:100%">{{ dish }}</td>
+          <td class="pull-right" style="white-space: nowrap">
+            <a class="btn btn-default" role="button" (click)="vote(dish,1);"><i class="fa fa-thumbs-o-up fa-2x"></i></a>
+            <a class="btn btn-default" role="button" (click)="vote(dish,-1);"><i class="fa fa-thumbs-o-down fa-2x"></i></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="lunch">
+  <div class="showme-comments col-xs-12 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
+    <div class="showme-comments-title">
+      Comments
+    </div>
+    <div class="showme-comments">
+      <table class="table">
+        <tr *ngFor="let comment of lunch?.comments">
+          <td>
+            <div class="showme-comment-body">{{comment.message}}</div>
+            <div class="showme-comment-meta">{{comment.name}} - {{comment.createDate | date: 'MMM d, y hh:mm:ss a'}}</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="showme-comments-form">
+      <div>
+        Name
+      </div>
+      <textarea id="comment-name" rows="1" [(ngModel)]="comment.Name"></textarea>
+      <br>
+      <div>
+        Comment <p style="font-style: italic; display: inline">(Please keep it polite!)<p>
+      </div>
+      <textarea id="comment-message" rows="6" [(ngModel)]="comment.Message"></textarea>
+      <br>
+      <br>
+      <div class="showme-comments-button">
+        <a class="btn btn-default" role="button" (click)="postComment()"><i class="fa fa-comment fa-fw"></i>&nbsp;Submit</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="settingsModalLabel">Settings</h4>
+      </div>
+      <div class="modal-body">
+        <!-- <lunch-switch field="settings.skipWeekends">Skip Weekends</lunch-switch><br/> -->
+        <br/>
+        <a role="button" class="btn btn-primary" [routerLink]="['/editmenus']" onclick="$('#settingsModal').modal('hide');"><i class="fa fa-pencil fa-fw"></i>Edit Menus</a>
+      </div>
+      <div class="modal-footer">
+        <a role="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-check fa-fw"></i>OK</a>
+      </div>
+    </div>
+  </div>
+</div>
